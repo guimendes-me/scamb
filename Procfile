@@ -1,1 +1,1 @@
-web: gunicorn gestao_clientes.wsgi --log-file -
+web: gunicorn scamb.wsgi --log-file -
