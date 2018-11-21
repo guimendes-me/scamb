@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+    <div class=".container-fluid " id="topmenu">
+          <div class="row">
+
+            <div class="col-11" id="topmenu_btns">
+                <a href="{% url 'mylist'%}" class="btn btn-default">Minha Lista</a>
+                <a href="{% url 'trades'%}" class="btn btn-default">Scambs</a>
+                <a href="{% url 'new_trade'%}" class="btn btn-outline-success">Scambar</a>
+            </div>
+
+            <div class="col" id="profile_header">
+                <img class="rounded-circle" id="avatar" src="/media/{{profile.avatar}}"></br>
+                <a href="{% url 'logout' %}" class="btn btn-default">Sair</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% block main %}
+    {% endblock %}
+
+
+
+    </body>
+
+
+     <footer class="footer">
+          <div class="container">
+            <span class="text-muted">Scamb - Desenvolvido por Guilherme Mendes</span>
+          </div>
+     </footer>
+
+
+</html>

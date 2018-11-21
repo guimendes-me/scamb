@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Minha lista{% endblock %}
+
+{% block main %}
+
+
+
+
+    {%for trade in trade%}
+
+    <div class="container" id="mylist">
+
+        <ul class="list-unstyled">
+
+          <li class="media">
+            <img class="mr-3" src="/media/{{trade.mainimg}}"  alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">{{trade.title}} - {{trade.subtitle}}</h5></br>
+                <p>{{trade.description}}</p>
+                <a href="{% url 'edit_trade' trade.id %}" class="btn btn-outline-secondary">Editar</a>
+                <a href="{%url 'delete_trade' trade.id%}" class="btn btn-outline-danger">Deletar</a><br/>
+            </div>
+
+          </li>
+
+        </ul>
+    </div>
+    <!--
+        <img src="/media/{{trade.mainimg}}"> {{trade.title}} - {{trade.subtitle}}</h3>
+
+    -->
+
+
+    {% endfor %}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

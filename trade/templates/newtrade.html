@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+
+
+{% block title %} Seja bem vindo {% endblock %}
+
+{% block main %}
+
+        <div id="newtrade" class="container">
+
+            <form method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="row">
+                <div class="col-6">
+                    {{form_trade.fk_profile}}
+                    {{form_trade.title|bootstrap}}
+                    {{form_trade.subtitle|bootstrap}}
+                    {{form_trade.description|bootstrap}}
+                    {{form_trade.mainimg|bootstrap}}
+
+               </div>
+               <div class="col-6">
+                    {{form_trade.interest|bootstrap}}
+                    {{form_trade.subinterest|bootstrap}}
+                    {{form_trade.interestdetails|bootstrap}}
+                    {{form_trade.interestimg|bootstrap}}
+
+               </div>
+
+            </div><button type="submit" class="btn btn-success btn-lg btn-block">Salvar</button></br>
+        </form>
+        </div>
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

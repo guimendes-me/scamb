@@ -1,0 +1,16 @@
+{% block title %} Seja bem vindo {% endblock %}
+
+{% block main %}
+
+    <h1>Teste</h1>
+    {% if user.is_authenticated %}
+        <p>Bem vindo {{user.username}}</p>
+        <a href="{% url 'logout' %}">Sair</a>
+    {%else%}
+        <a href="{% url 'login' %}">Login</a>
+    {%endif%}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
+

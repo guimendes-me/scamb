@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Seja bem vindo {% endblock %}
+
+{% block main %}
+
+
+
+{% for trade in trades %}
+    {# Each "trade" is a Trade model object. #}
+    <div class="container" id="mylist">
+        <div class="row">
+            <div class="col-12" id="profile">
+
+                <ul class="list-inline">
+                    <li class="list-inline-item"><img class="rounded-circle" id="avatar" src="/media/{{trade.fk_profile.avatar}}"></li>
+                    <li class="list-inline-item"><h4>{{trade.fk_profile.user}} scamba</h4></li>
+                </ul>
+
+            </div>
+        </div>
+        <ul class="list-unstyled">
+        <div class="row" id="tradebox">
+
+            <div class="col-sm" id="td1">
+                <li class="media">
+                    <img class="mr-3" src="/media/{{trade.mainimg}} " alt="Generic placeholder image">
+                        <a href="{% url 'showtrade' trade.id %}"><h5> {{ trade.title }}</h5>
+                        <h6>{{trade.subtitle}} </h6></a>
+                </li>
+            </div>
+
+            <div class="col-sm" id="td2">
+                <li class="media">
+                    <img class="mr-3" src="/media/{{trade.interestimg}} " alt="Generic placeholder image">
+                    <a href="{% url 'showtrade' trade.id %}"><h5> {{ trade.interest }}</h5>
+                    <h6>{{trade.subinterest}} </h6></a>
+                    <p>{{trade.interestdetails}}</p>
+                </li>
+
+            </div>
+
+        </div>
+        </ul>
+    </div>
+
+
+
+
+{% endfor %}
+
+    <div class="pagination" >
+        <div id="pagination">
+            <span class="step-links">
+                {% if trades.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ trades.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ trades.number }} de {{ trades.paginator.num_pages }}.
+                </span>
+
+                {% if trades.has_next %}
+                    <a href="?page={{ trades.next_page_number }}">next</a>
+                    <a href="?page={{ trades.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
