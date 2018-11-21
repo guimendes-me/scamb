@@ -31,7 +31,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['scamb.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['scamb.herokuapp.com', 'localhost','127.0.0.1']
 
 
 # Application definition

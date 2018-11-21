@@ -12,6 +12,7 @@ body{
 
 #topmenu{
 	background-color: #282A2D;
+	height: 100px;
 	margin: 0 0 15px 0;
 	position: fixed;
 	width: 100%;
