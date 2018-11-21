@@ -141,5 +141,6 @@ color:#F2F2EF;
 }
 
 .row #showtrade_user{
-	background-color: green;
+	margin-top: 100px;
+	background-color: red;
 }
