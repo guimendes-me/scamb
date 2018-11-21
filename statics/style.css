@@ -142,5 +142,6 @@ color:#F2F2EF;
 
 .row #showtrade_user{
 	top: 120px;
-	background-color: red;
+	max-height: 200px;
+	background-color: green;
 }
