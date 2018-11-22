@@ -8,42 +8,43 @@
     <a href="{% url 'trades'%}">Voltar</a>
 
 
-
-    <div class="container">
-
-      <div class="row">
-        <div class="col" id="showtrade_user">
-          <h2>Dados do Scamber</h2>
-            <img src="/media/{{scamber.avatar}}">
-            <ul>
-                <li><p><strong>Nome: </strong>{{user.first_name}} {{user.last_name}}</p></li>
-                <li><p><strong>Etec:</strong> {{scamber.etec}}</p></li>
-                <li><p><strong>Curso:</strong> {{scamber.course}} </p></li>
-                <li><p><strong>Email:</strong> {{user.email}} </p></li>
-                <li><p><strong>Whats:</strong> {{scamber.whats}} </p></li>
-
-            </ul>
+    <div class="container" id="showtrade">
+        <div class="row">
+                <div class="col" id="showtrade_user">
+                    <img src="/media/{{scamber.avatar}}">
+                        <div id="datauser">
+                            <h4>Scamber</h4>
+                            <ul class="list-unstyled" id="scamber">
+                                <li><p><strong>Nome: </strong>{{user.first_name}} {{user.last_name}}</p></li>
+                                <p><strong>Etec:</strong> {{scamber.etec}}</p>
+                                <p><strong>Curso:</strong> {{scamber.course}} </p>
+                                <p><strong>Email:</strong> {{user.email}} </p>
+                                <p><strong>Whats:</strong> {{scamber.whats}} </p>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
         </div>
-      </div>
 
-      <div class="row" >
-        <div class="col" id="showtrade_item1">
-          <h1>{{scamber.user}} oferece</h1>
-            <img src="/media/{{trade.mainimg}}">
-            <h2>{{trade.title}}</h2>
-            <h3>{{trade.subtitle}}</h3>
-            <h4>Descrição:</h4>
-            <p>{{trade.description}}</p>
-        </div>
-        <div class="col" id="showtrade_item2">
-          <h1>e scamba por</h1>
-                <img src="/media/{{trade.interestimg}}">
-                <h2>{{trade.interest}}</h2>
-                <h3>{{trade.subinterest}}</h3>
-                <h4>Descrição:</h4>
-                <p>{{trade.interestdetails}}</p>
-        </div>
-      </div>
+        <ul class="list-unstyled">
+            <div class="row" id="tradeitems">
+
+                <div class="col-sm" id="item1">
+                    <img class="mr-3" src="/media/{{trade.mainimg}} " alt="Generic placeholder image">
+                    <div class="trade_title"><strong><h4>{{ trade.title }}</h4></strong></div>
+                    <div class="trade_subtitle"><h6>{{trade.subtitle}} </h6></div>
+                    <div class="trade_description"><p>{{trade.description}}</p></div>
+                </div>
+
+                <div class="col-sm" id="item2">
+                    <img class="mr-3" src="/media/{{trade.interestimg}} " alt="Generic placeholder image">
+                    <div class="trade_title"><strong><h4>{{ trade.interest }}</h4></strong></div>
+                    <div class="trade_subtitle"><h6>{{trade.subinterest}} </h6></div>
+                    <div class="trade_description"><p>{{trade.interestdetails}}</p></div>
+                </div>
+
+            </div>
+        </ul>
     </div>
 
 

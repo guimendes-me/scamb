@@ -13,7 +13,7 @@ def listing(request):
     profile = Profile.objects.get(user=user)
 
     trade_list = Trade.objects.all()
-    paginator = Paginator(trade_list, 1) # Show 25 contacts per page
+    paginator = Paginator(trade_list, 10) # Show 25 contacts per page
 
     page = request.GET.get('page')
     trades = paginator.get_page(page)
