@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Buscar com a Boowl {% endblock %}
+
+{% block main %}
+
+    <div id="boowl" >
+
+        <form method="get">
+            <div class=col id=searchbar>
+                <input class="form-control" type="text" name="keyword" placeholder="Buscar com a Boowl" aria-label="Buscar">
+                <button type="submit" class="btn btn-success">Buscar</button>                                     
+            </div>
+                   
+        </form>
+    </div>   
+
+    <div id="results">
+        <div class="container" id="r_items">
+            
+            {% if book %}
+
+                {% if items > 0 %}
+
+                    {% for book in book %}
+    
+                         <ul class="list-unstyled">
+                            <li class="media"> 
+
+                                <img class="mr-3" src="{{book.volumeInfo.imageLinks.thumbnail}}"  alt="{{book.volumeInfo.readingModes.image}}">
+
+                                <div class="media-body">                                    
+                                    <h3><strong>Titulo:</strong> {{book.volumeInfo.title}} </h3>
+                                    <h4>Subtitulo: {{ book.volumeInfo.subtitle}} </h4>
+                                    <h4>Autor: {{ book.volumeInfo.authors.0}} </h4>
+                                    <h4>Editora: {{book.volumeInfo.publisher}}</h4>
+
+                                    <h4>ISBN 13: {{book.volumeInfo.industryIdentifiers.0.identifier}}</h4>
+                                    <h4>ISBN 10: {{book.volumeInfo.industryIdentifiers.1.identifier}}</h4>
+                                    <h4>Idioma: {{book.volumeInfo.language}}</h4>
+
+                                    
+
+                                    <p><strong>Sinopse:</strong></p>
+                                    <p>{{book.volumeInfo.description}}</p>
+
+
+                                </div>
+                            </li>
+                        </ul>        
+                    {% endfor %}
+                            
+
+                
+                
+                {% else %}
+                    
+                    <div>
+                        <h3 >Qual livro você quer trocar hoje? </h3>
+                    </div>   
+
+                {% endif %}
+
+            {% endif %}
+
+            </div>        
+            
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

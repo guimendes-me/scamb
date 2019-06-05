@@ -1,6 +1,9 @@
 *.idea
 *.sqlite3
 *pyc
-.DS_Store
+.DSgit_Store
 media
 .env
+venv/
+.vscode
+scamb/settings.py
